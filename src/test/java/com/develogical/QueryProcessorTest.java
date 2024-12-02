@@ -24,4 +24,15 @@ public class QueryProcessorTest {
     public void knowsTeamName() throws Exception {
         assertThat(queryProcessor.process("What is your name?"), containsString("RobTest"));
     }
+    
+    @Test
+    public void canAddNumbers() throws Exception {
+        assertThat(queryProcessor.process("What is 15 plus 15?"), is("30"));
+    }
+
+    @Test
+    public void canMultiplyNumbers() throws Exception {
+        assertThat(queryProcessor.process("What is 15 multiplied by 15?"), is("225"));
+    }
+
 }
