@@ -38,6 +38,15 @@ public class QueryProcessor {
             return String.valueOf(max);
         }
 
+        if (query.contains("multiplied")) {
+            // remove trailing ?
+            query = query.substring(0, query.length() - 1);
+            String[] parts = query.split(" ");
+            int first = Integer.parseInt(parts[2]);
+            int second = Integer.parseInt(parts[5]);
+            return Integer.toString(first * second);
+        }
+
         return "";
     }
 
