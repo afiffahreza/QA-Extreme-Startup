@@ -104,4 +104,4 @@ We also have access to GitHub Actions minutes that you can use.
 We will warn you before we advance game rounds.
 
 ## Team Members
-Afi, Benjamin, Jason, Thaddeus
+Afif, Benjamin, Jason, Thaddeus
