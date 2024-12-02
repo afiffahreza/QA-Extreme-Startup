@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.*;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -21,6 +23,19 @@ public class QueryProcessor {
             int first = Integer.parseInt(parts[2]);
             int second = Integer.parseInt(parts[4]);
             return Integer.toString(first + second);
+        }
+
+        if (query.contains("largest")) {
+            String numbers = query.split(":")[1];
+            numbers = numbers.replaceAll("\\s+", "");
+            numbers = numbers.substring(0, numbers.length() - 1);
+            List<String> temp = Arrays.asList(numbers.split(","));
+            int max = -999999999;
+            for (String n : temp) {
+                int a = Integer.parseInt(n);
+                max = Math.max(a, max);
+            }
+            return String.valueOf(max);
         }
 
         return "";
