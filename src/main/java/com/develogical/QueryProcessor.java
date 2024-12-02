@@ -99,9 +99,11 @@ public class QueryProcessor {
             // remove trailing ?
             query = query.substring(0, query.length() - 1);
             String[] parts = query.split(" ");
-            int first = Integer.parseInt(parts[2]);
-            int second = Integer.parseInt(parts[4]);
-            return Integer.toString(first - second);
+            int result = Integer.parseInt(parts[2]);
+            for (int i = 4; i < parts.length; i += 2) {
+                result -= Integer.parseInt(parts[i]);
+            }
+            return Integer.toString(result);
         }
 
         return "";
