@@ -31,12 +31,17 @@ public class QueryProcessor {
         }
 
         if (query.contains("plus")) {
-            // remove trailing ?
-            query = query.substring(0, query.length() - 1);
-            String[] parts = query.split(" ");
-            int first = Integer.parseInt(parts[2]);
-            int second = Integer.parseInt(parts[4]);
-            return Integer.toString(first + second);
+            String numbers = query.substring(0, query.length() - 1);
+            numbers = numbers.replaceAll("What is", "");
+            numbers = numbers.replaceAll("\\s+", "");
+            numbers = numbers.substring(0, numbers.length() - 1);
+            String[] parts = query.split("plus");
+            int res = 0;
+            for (String s : parts) {
+                int num = Integer.parseInt(s);
+                res += num;
+            }
+            return Integer.toString(res);
         }
 
         if (query.contains("largest")) {
