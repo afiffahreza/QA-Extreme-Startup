@@ -14,6 +14,15 @@ public class QueryProcessor {
             return "afifbenjasonthaddeus";
         }
 
+        if (query.contains("plus")) {
+            // remove trailing ?
+            query = query.substring(0, query.length() - 1);
+            String[] parts = query.split(" ");
+            int first = Integer.parseInt(parts[2]);
+            int second = Integer.parseInt(parts[4]);
+            return Integer.toString(first + second);
+        }
+
         return "";
     }
 
